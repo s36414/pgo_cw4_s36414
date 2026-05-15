@@ -18,7 +18,7 @@ public class Tester extends Employee {
     }
 
     public void generateTestReport() {
-        System.out.printf("Tests report: Scenarios tested - %d", scenariosNumber);
+        System.out.printf("Tests report: Scenarios tested - %d\n", scenariosNumber);
     }
 
     public int getScenariosNumber() {
@@ -49,6 +49,6 @@ public class Tester extends Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(automated, scenariosNumber);
+        return Objects.hash(id, name, surname, getWages(), automated, scenariosNumber);
     }
 }

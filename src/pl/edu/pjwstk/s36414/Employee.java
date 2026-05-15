@@ -15,15 +15,15 @@ public class Employee {
         this.wages = wages;
     }
 
-    final String getId() {
+    public final String getId() {
         return id;
     }
 
-    final float getWages() {
+    public final float getWages() {
         return wages;
     }
 
-    String introduce() {
+    public String introduce() {
         return "Employee id=%s, name=%s, surname=%s, wages=%.2f".formatted(id, name, surname, wages);
     }
 

@@ -41,6 +41,6 @@ public class Developer extends Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mainLanguage, repositoriesNumber);
+        return Objects.hash(id, name, surname, getWages(), mainLanguage, repositoriesNumber);
     }
 }

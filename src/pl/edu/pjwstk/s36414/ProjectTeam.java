@@ -21,8 +21,8 @@ public class ProjectTeam {
         }
     }
 
-    public String calculateTotalCost() {
-        return employeeList.stream().map(employee -> employee.getWages()).reduce(0f, Float::sum).toString();
+    public float calculateTotalCost() {
+        return employeeList.stream().map(employee -> employee.getWages()).reduce(0f, Float::sum);
     }
 
     public void printTesters() {
@@ -38,6 +38,6 @@ public class ProjectTeam {
     }
 
     public Employee findById(String id) {
-        return employeeList.stream().filter(employee -> employee.getId().equals(id)).findFirst().get();
+        return employeeList.stream().filter(employee -> employee.getId().equals(id)).findFirst().orElse(null);
     }
 }

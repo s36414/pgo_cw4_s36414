@@ -1,7 +1,7 @@
 package pl.edu.pjwstk.s36414;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ProjectTeam team = new ProjectTeam("Campus App");
 
         Employee e1 = new Developer("E-101", "Anna", "Maj", 12000, "Java", 4);
@@ -41,7 +41,17 @@ public class Main {
         System.out.println(e2.introduce());
 
         System.out.println("Check if new tester is the same as old one:");
-
         System.out.println(e2.equals(newTester));
+
+        String id = "E-101";
+        System.out.println("Find employee by id: " + id);
+        Employee employee = team.findById(id);
+        if (employee != null) {
+            System.out.println(employee.introduce());
+        } else {
+            System.out.printf("Employee (id=%s) NOT FOUND%n", id);
+        }
+
+
     }
 }
