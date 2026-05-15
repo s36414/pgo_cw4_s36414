@@ -1,18 +1,13 @@
 package pl.edu.pjwstk.s36414;
 
-public class Developer implements Employee {
-    private final String id;
-    private final String name;
-    private final String surname;
-    private final float wages;
+import java.util.Objects;
+
+public class Developer extends Employee {
     private final String mainLanguage;
     private final int repositoriesNumber;
 
     public Developer(String id, String name, String surname, float wages, String mainLanguage, int repositoriesNumber) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.wages = wages;
+        super(id, name, surname, wages);
         this.mainLanguage = mainLanguage;
         this.repositoriesNumber = repositoriesNumber;
     }
@@ -22,22 +17,30 @@ public class Developer implements Employee {
     }
 
     @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public float getWages() {
-        return wages;
-    }
-
-    @Override
     public String introduce() {
-        return toString();
+        return "Developer[%s] %s %s; Main language - %s".formatted(id, name, surname, mainLanguage);
     }
 
     @Override
     public String toString() {
-        return "Developer[%s] %s %s; Main language - %s".formatted(id, name, surname, mainLanguage);
+        return "Developer{" +
+                "mainLanguage='" + mainLanguage + '\'' +
+                ", repositoriesNumber=" + repositoriesNumber +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Developer developer)) return false;
+        if (!super.equals(o)) return false;
+        return repositoriesNumber == developer.repositoriesNumber && Objects.equals(mainLanguage, developer.mainLanguage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mainLanguage, repositoriesNumber);
     }
 }

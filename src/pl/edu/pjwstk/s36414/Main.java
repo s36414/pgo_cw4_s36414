@@ -12,20 +12,36 @@ public class Main {
         team.addEmployee(e2);
         team.addEmployee(e3);
 
+        System.out.println("Team members:");
+        team.printTeamMembers();
+
+        System.out.println("Testers in team:");
+        team.printTesters();
+
+        System.out.println("Developers in team:");
+        team.printDevelopers();
 
         System.out.println("Total team cost: " + team.calculateTotalCost());
-
-        team.printTeamMembers();
 
         System.out.println(e1.introduce());
         System.out.println(e2.introduce());
 
         if (e1 instanceof Developer) {
             Developer developer = (Developer) e1;
+            System.out.println(developer.introduce());
             developer.printTechnologies();
         }
 
-        System.out.println(e2.equals(new Tester("E-201", "Other", "Data", 9000, false, 10)));
-        System.out.println(e2);
+        Employee newTester = new Tester("E-201", "Other", "Data", 9000, false, 10);
+
+        System.out.println("New tester:");
+        System.out.println(newTester.introduce());
+
+        System.out.println("Old tester:");
+        System.out.println(e2.introduce());
+
+        System.out.println("Check if new tester is the same as old one:");
+
+        System.out.println(e2.equals(newTester));
     }
 }

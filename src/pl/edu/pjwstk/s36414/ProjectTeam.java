@@ -24,4 +24,20 @@ public class ProjectTeam {
     public String calculateTotalCost() {
         return employeeList.stream().map(employee -> employee.getWages()).reduce(0f, Float::sum).toString();
     }
+
+    public void printTesters() {
+        employeeList.stream()
+                .filter(employee -> employee instanceof Tester)
+                .forEach(employee -> System.out.println(employee.introduce()));
+    }
+
+    public void printDevelopers() {
+        employeeList.stream()
+                .filter(employee -> employee instanceof Developer)
+                .forEach(employee -> System.out.println(employee.introduce()));
+    }
+
+    public Employee findById(String id) {
+        return employeeList.stream().filter(employee -> employee.getId().equals(id)).findFirst().get();
+    }
 }
